@@ -1,0 +1,53 @@
+<div class="container mx-auto py-5">
+<form action="/restaurants/{{ restaurant._id }}/edit" method="POST">
+  <div class="form-group col-md-4">
+    <label for="name">餐廳中文名稱：</label>
+    <input type="text" class="form-control" id="name" name="name" value="{{ restaurant.name }}">
+  </div>
+
+  <div class="form-group col-md-4">
+    <label for="name_en">餐廳英文名稱：</label>
+    <input type="text" class="form-control" id="name_en" name="name_en" value="{{ restaurant.name }}">
+  </div>
+
+  <div class="form-group col-md-4">
+    <label for="category">類別：</label>
+    <input type="text" class="form-control" id="category" name="category" placeholder="中式,日式,義式,美式,法式..." value="{{ restaurant.category }}">
+  </div>
+
+  <div class="form-group col-md-4">
+    <label for="image">圖片網址：</label>
+    <input type="text" class="form-control" id="image" name="image" placeholder="https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/5635/01.jpg" value="{{ restaurant.image }}">
+  </div>
+
+  <div class="form-group col-md-4">
+    <label for="location">地址：</label>
+    <input type="text" class="form-control" id="location" name="location" placeholder="例如: 台北市羅斯福路三段 283 巷 17 號" value="{{ restaurant.location }}">
+  </div>
+
+  <div class="form-group col-md-4">
+    <label for="phone">電話：</label>
+    <input type="text" class="form-control" id="phone" name="phone" placeholder="02XX, 0912XXXXXX " value="{{ restaurant.phone }}" inputmode="numeric">
+  </div>
+
+  <div class="form-group col-md-4">
+    <label for="google_map">Google地址連結：</label>
+    <input type="text" class="form-control" id="google_map" name="google_map"
+      placeholder="https://goo.gl/maps/BJdmLuVdDbw" value="{{ restaurant.google_map }}">
+  </div>
+
+  <div class="form-group col-md-4">
+    <label for="rating">評分：(1-5分)</label>
+    <input type="text" class="form-control" id="rating" name="rating"  placeholder="(4.5, 3.2, 3.7, 4.6)" value="{{ restaurant.rating }}" inputmode="numeric">
+  </div>
+
+  <div class="form-group col-md-6">
+    <label for="description">餐廳描述：</label>
+    <textarea type="text" class="form-control" id="description" name="description"
+      placeholder="對於餐廳的描述或用餐心得" value="{{ restaurant.description }}"></textarea>
+  </div>
+
+  <button type="submit" class="btn btn-primary">儲存</button>
+
+</form>
+</div>
