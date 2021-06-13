@@ -1,51 +1,80 @@
-<div class="container mx-auto py-5">
-<form action="/restaurants" method="POST">
-  <div class="form-group col-md-4">
-    <label for="name">餐廳中文名稱：</label>
-    <input type="text" class="form-control" id="name" name="name">
+<div class="container">
+  <div class="row align-items-center">
+    <div class="col align-self-center">
+      <form action="/restaurants" method="POST" id="form" novalidate>
+        <div class="form-group col-md-4">
+          <label for="name">餐廳中文名稱：</label>
+          <input type="text" class="form-control" id="name" name="name" required>
+        </div>
+      
+        <div class="form-group col-md-4">
+          <label for="name_en">餐廳英文名稱：</label>
+          <input type="text" class="form-control" id="name_en" name="name_en" required>
+        </div>
+      
+        <div class="form-group col-md-4">
+          <label for="category">類別：</label>
+          <input type="text" class="form-control" id="category" name="category" placeholder="火鍋,居酒屋,中式,日式,義式,美式,法式..."
+            required>
+        </div>
+      
+        <div class="form-group col-md-4">
+          <label for="image">圖片網址：</label>
+          <input type="text" class="form-control" id="image" name="image"
+            placeholder="https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/5635/01.jpg" required>
+        </div>
+      
+        <div class="form-group col-md-4">
+          <label for="location">地址：</label>
+          <input type="text" class="form-control" id="location" name="location" placeholder="例如: 台北市羅斯福路三段 283 巷 17 號"
+            required>
+        </div>
+      
+        <div class="form-group col-md-4">
+          <label for="phone">電話：</label>
+          <input type="text" class="form-control" id="phone" name="phone" placeholder="02XX, 0912XXXXXX " inputmode="numeric"
+            required>
+        </div>
+      
+        <div class="form-group col-md-4">
+          <label for="google_map">Google地址連結：</label>
+          <input type="text" class="form-control" id="google_map" name="google_map"
+            placeholder="https://goo.gl/maps/BJdmLuVdDbw" required>
+        </div>
+      
+        <div class="form-group col-md-4">
+          <label for="rating">評分：(1-5分)</label>
+          <input type="text" class="form-control" id="rating" name="rating" placeholder="(4.5, 3.2, 3.7, 4.6)"
+            inputmode="numeric" required>
+        </div>
+      
+        <div class="form-group col-md-6">
+          <label for="description">餐廳描述：</label>
+          <textarea type="text" class="form-control" id="description" name="description" placeholder="對於餐廳的描述或用餐心得"
+            required></textarea>
+          <div class="invalid-feedback">
+            必填欄位
+          </div>
+        </div>
+      
+        <button type="submit" class="btn btn-primary" id="submit-button">儲存</button>
+      
+      </form>
+    </div>
   </div>
-
-  <div class="form-group col-md-4">
-    <label for="name_en">餐廳英文名稱：</label>
-    <input type="text" class="form-control" id="name_en" name="name_en">
-  </div>
-
-  <div class="form-group col-md-4">
-    <label for="category">類別：</label>
-    <input type="text" class="form-control" id="category" name="category" placeholder="火鍋,居酒屋,中式,日式,義式,美式,法式...">
-  </div>
-
-  <div class="form-group col-md-4">
-    <label for="image">圖片網址：</label>
-    <input type="text" class="form-control" id="image" name="image" placeholder="https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/5635/01.jpg">
-  </div>
-
-  <div class="form-group col-md-4">
-    <label for="location">地址：</label>
-    <input type="text" class="form-control" id="location" name="location" placeholder="例如: 台北市羅斯福路三段 283 巷 17 號">
-  </div>
-
-  <div class="form-group col-md-4">
-    <label for="phone">電話：</label>
-    <input type="text" class="form-control" id="phone" name="phone" placeholder="02XX, 0912XXXXXX " inputmode="numeric">
-  </div>
-
-  <div class="form-group col-md-4">
-    <label for="google_map">Google地址連結：</label>
-    <input type="text" class="form-control" id="google_map" name="google_map" placeholder="https://goo.gl/maps/BJdmLuVdDbw">
-  </div>
-
-  <div class="form-group col-md-4">
-    <label for="rating">評分：(1-5分)</label>
-    <input type="text" class="form-control" id="rating" name="rating" placeholder="(4.5, 3.2, 3.7, 4.6)" inputmode="numeric">
-  </div>
-
-  <div class="form-group col-md-6">
-    <label for="description">餐廳描述：</label>
-    <textarea type="text" class="form-control" id="description" name="description" placeholder="對於餐廳的描述或用餐心得"></textarea>
-  </div>
-
-  <button type="submit" class="btn btn-primary">儲存</button>
-
-</form>
 </div>
+
+<script>
+  const form = document.querySelector("#form");
+  form.addEventListener('submit', function onFormSubmit(event) {
+    if (!form.checkValidity()) {
+      event.preventDefault()
+      event.stopPropagation()
+    }
+
+  })
+  const submitButton = document.querySelector('#submit-button')
+  submitButton.addEventListener('click', function onSubmitButtonClicked(event) {
+    form.classList.add('was-validated')
+  })
+</script>

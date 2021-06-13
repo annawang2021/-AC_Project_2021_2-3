@@ -79,6 +79,7 @@ app.get('/restaurants/:id/edit', (req, res) => {
 
 // Update
 app.post('/restaurants/:id/edit', (req, res) => {
+  const id = req.params.id
   return RestaurantSchema.findById(id)
     .then(restaurant => {
       restaurant.name = req.body.name
