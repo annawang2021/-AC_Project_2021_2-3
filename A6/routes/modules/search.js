@@ -16,5 +16,4 @@ router.get('/', (req, res) => {
     .catch(error => console.error(error))
 })
 
-
 module.exports = router

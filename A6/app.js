@@ -23,7 +23,6 @@ app.use(methodOverride('_method'))
 
 app.use(routes)
 
-
 // Start the server
 app.listen(port, () => {
   console.log(`http://localhost:${port}`)

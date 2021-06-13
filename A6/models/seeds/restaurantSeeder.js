@@ -2,7 +2,6 @@ const RestaurantSchema = require('../restaurantSchema')
 const restaurantList = require('../../restaurants.json')
 const db = require('../../config/mongoose')
 
-
 db.once('open', () => {
   console.log('mongodb connected!')
   for (let i = 0; i < 8; i++) {
