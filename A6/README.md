@@ -3,6 +3,13 @@
 A6 project: Restaurant List
 =============================
 
+![image](https://user-images.githubusercontent.com/77376405/121671730-81427280-cae1-11eb-8d7f-7e39d55b330e.png)
+
+![image](https://user-images.githubusercontent.com/77376405/121671816-a0d99b00-cae1-11eb-91f2-48303e6da13f.png)
+
+![image](https://user-images.githubusercontent.com/77376405/121671943-c4044a80-cae1-11eb-82d1-cdf5205760c2.png)
+
+
 
 
  ##  Feature
