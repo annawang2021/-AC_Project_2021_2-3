@@ -13,6 +13,8 @@ A6 project: Restaurant List
 3. CRUD db functions 
 
 4. Show details of each restaurant 
+   
+5. Form validity
 
 
 ## To start the server
