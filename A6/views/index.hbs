@@ -1,5 +1,5 @@
 <!-- search bar -->
-<div class="container search-bar">
+{{!-- <div class="container search-bar">
   <div class="search-bar-outer">
     <div class="search-bar-inner">
       <form action="/search">
@@ -13,11 +13,50 @@
       </form>
     </div>
   </div>
+</div> --}}
+
+<div class="container pt-4" id="search_sort">
+  <div class="d-flex flex-row justify-content-center">
+    {{!-- search bar --}}
+    <div class="col-6">
+      <form action="/search">
+        <div class="input-group">
+          <input type="text" name="keyword" value="{{keyword}}" class="form-control" placeholder="輸入餐廳名稱或種類"
+            aria-label="Restaurant Name..." aria-describedby="search-button">
+          <div class="input-group-append">
+            <button class="btn btn-major" type="submit" id="search-button"><i class="fas fa-search"></i></button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    {{!-- sort bar --}}
+    <div class="col-2">
+      <form action="/">
+        <div class="form-group">
+          {{!-- <label for="sort">排序</label> --}}
+          <select class="form-control" id="sort">
+            <option value="">排序</option>
+            <option id="atoz" name="atoz" value="atoz">A-->Z</option>
+            <option id ="ztoa" name="ztoa" value="ztoa">Z-->A</option>
+            <option id="sortByCategory" name="sortByCategory" value="sortByCategory">類別</option>
+            <option id="sortByLocation" name="sortByLocation" value="sortByLocation">地區</option>
+          </select>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  {{!-- add new item --}}
+  <div class="d-flex flex-row justify-content-center">
+    <a href="/restaurants/new" target="_blank">新增餐廳<i class="fas fa-folder-plus px-2"></i></a>
+  </div>
+
 </div>
 
 <!-- restaurant list -->
 <div class="container mt-5">
-  <div class="row"><a href="/restaurants/new" target="_blank">新增餐廳</a></div>
+  {{!-- <div class="row"><a href="/restaurants/new" target="_blank">新增餐廳</a></div> --}}
   <div class="row">
     <div class="col-md-10 col-12 mx-auto">
       <div class="card-columns">
@@ -43,7 +82,7 @@
                 <button type="submit" class="btn btn-outline-info" style="padding: 0%;">更多介紹</button>
               </form>
 
-              <form action="/restaurants/{{ this._id }}/delete" method="POST" style="display: inline;">
+              <form action="/restaurants/{{ this._id }}?_method=DELETE" method="POST" style="display: inline;">
                 <button type="submit" class="btn btn-outline-warning" style="padding: 0%;">刪除</button>
               </form>
     

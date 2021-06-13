@@ -1,11 +1,11 @@
 const express = require('express')
-const app = express()
 const port = 3000
 const mongoose = require('mongoose') 
-const RestaurantSchema = require('./models/restaurantSchema.js')
 const exphbs = require('express-handlebars')
 const bodyParser = require('body-parser')
-
+const methodOverride = require('method-override')
+const RestaurantSchema = require('./models/restaurantSchema.js')
+const app = express()
 // Connect with mongoDB
 mongoose.connect('mongodb://localhost/A6-restaurantsList', { useNewUrlParser: true, useUnifiedTopology: true })
 
@@ -29,10 +29,14 @@ app.use(express.urlencoded({ extended: true }))
 // setting static files: to import bootstrap, jquery, js CDN
 app.use(express.static('public'))
 
+// setting methodOverride
+app.use(methodOverride('_method'))
+
 // Index page
 app.get('/', (req, res) => {
-  RestaurantSchema.find() 
+  RestaurantSchema.find()
     .lean()
+    .sort({ _id: 'asc' })
     .then(restaurants => res.render('index', { restaurants }))
     .catch(error => console.error(error))
 })
@@ -68,7 +72,7 @@ app.get('/restaurants/:id', (req, res) => {
     .catch(error => console.error(error))
 })
 
-// Edit page
+// Edit
 app.get('/restaurants/:id/edit', (req, res) => {
   const id = req.params.id
   return RestaurantSchema.findById(id)
@@ -78,7 +82,7 @@ app.get('/restaurants/:id/edit', (req, res) => {
 })
 
 // Update
-app.post('/restaurants/:id/edit', (req, res) => {
+app.put('/restaurants/:id', (req, res) => {
   const id = req.params.id
   return RestaurantSchema.findById(id)
     .then(restaurant => {
@@ -98,7 +102,7 @@ app.post('/restaurants/:id/edit', (req, res) => {
 })
 
 // Delete
-app.post('/restaurants/:id/delete', (req, res) => {
+app.delete('/restaurants/:id', (req, res) => {
   const id = req.params.id
   return RestaurantSchema.findById(id)
     .then(restaurant => restaurant.remove())
