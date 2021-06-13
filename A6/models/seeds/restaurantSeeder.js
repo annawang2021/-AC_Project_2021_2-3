@@ -1,14 +1,7 @@
-const mongoose = require('mongoose')
-const RestaurantSchema = require('../restaurantSchema') // 載入 model
+const RestaurantSchema = require('../restaurantSchema')
 const restaurantList = require('../../restaurants.json')
+const db = require('../../config/mongoose')
 
-mongoose.connect('mongodb://localhost/A6-restaurantsList', { useNewUrlParser: true, useUnifiedTopology: true })
-
-const db = mongoose.connection
-
-db.on('error', () => {
-  console.log('mongodb error!')
-})
 
 db.once('open', () => {
   console.log('mongodb connected!')
