@@ -1,6 +1,6 @@
 
 >
-A6 project: Restaurant List
+A8: Upgrade-A6 project: Restaurant List
 =============================
 
 ![image](https://user-images.githubusercontent.com/77376405/121671730-81427280-cae1-11eb-8d7f-7e39d55b330e.png)
