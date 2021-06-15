@@ -22,6 +22,8 @@ A6 project: Restaurant List
 4. Show details of each restaurant 
    
 5. Form validity
+   
+6. Sort bar
 
 
 ## To start the server
