@@ -57,7 +57,7 @@ $npm run dev
  $ npm install nodemon -g
  ```
 
-1. **Express-Handlebars (v5.3.2)**
+4. **Express-Handlebars (v5.3.2)**
  ```
  $ npm i express-handlebars
  ```
@@ -67,7 +67,7 @@ $npm run dev
  const exhbs =require('express-handlebars')
  ```
 
-4. **Express.js body-parser**
+5. **Express.js body-parser**
  ```js script
  $ npm install body-parser
  ```
@@ -77,7 +77,7 @@ $npm run dev
  app.use(express.urlencoded({ extended: true }))
  ```
 
-5. **MongoDB, Mongoose**
+6. **MongoDB, Mongoose**
  ```js script
  $npm install mongoose
  ```
@@ -98,9 +98,9 @@ $npm run dev
  db.once('open', () => {
    console.log('mongodb connected!')
  })
->```
+```
 
-6. **handlebars-helpers**
+7. **handlebars-helpers**
   ```js
   $ npm install --save handlebars-helpers
   ```
@@ -111,6 +111,6 @@ $npm run dev
   const helpers = hbshelpers()
   ```
 
-7. **Bootstrap (v4.3.1) with CDN**
+8. **Bootstrap (v4.3.1) with CDN**
    
-8. **FontAwesomewith CDN**
+9. **FontAwesomewith CDN**
