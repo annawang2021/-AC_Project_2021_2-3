@@ -5,8 +5,8 @@ const RestaurantSchema = require('../../models/restaurantSchema.js')
 router.get('/', (req, res) => {
   const keyword = req.query.keyword.toLowerCase()
   const sortBy = req.query.sortBy || '_id'
-  if (keyword === "") {
-    res.redirect("/")
+  if (keyword === '') {
+    res.redirect('/')
   }
   return RestaurantSchema.find()
     .lean()
