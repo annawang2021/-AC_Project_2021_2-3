@@ -47,59 +47,70 @@ $npm run dev
 1. **Node.js (v14.15.4)**
   
 2. **Express (v4.17.1)**
->```
->$ npm init -y
->$ npm install express
->```
+ ```
+ $ npm init -y
+ $ npm install express
+ ```
 
 3. **nodemon**
->```
->$ npm install nodemon -g
->```
+ ```
+ $ npm install nodemon -g
+ ```
 
 1. **Express-Handlebars (v5.3.2)**
->```
->$ npm i express-handlebars
->```
->to import handlebars into node.js, using <span style='color: red'>`require`</span>
+ ```
+ $ npm i express-handlebars
+ ```
+ to import handlebars into node.js, using <span style='color: red'>`require`</span>
 
->```js script
->const exhbs =require('express-handlebars')
->```
+ ```js script
+ const exhbs =require('express-handlebars')
+ ```
 
 4. **Express.js body-parser**
->```js script
->$ npm install body-parser
->```
+ ```js script
+ $ npm install body-parser
+ ```
 
->```js script
->// setting body-parser
->app.use(express.urlencoded({ extended: true }))
->```
+ ```js script
+ // setting body-parser
+ app.use(express.urlencoded({ extended: true }))
+ ```
 
 5. **MongoDB, Mongoose**
->```js script
->$npm install mongoose
+ ```js script
+ $npm install mongoose
+ ```
+
+ to import Mongoose in node.js
+ ```js script
+ const mongoose = require('mongoose') 
+ 
+ // Connect with mongoDB
+ mongoose.connect('mongodb://localhost/A6-restaurantsList', { useNewUrlParser: true, useUnifiedTopology: true })
+ 
+ // Check mongoDB connection status
+ const db = mongoose.connection
+ db.on('error', () => {
+   console.log('mongodb error!')
+ })
+ 
+ db.once('open', () => {
+   console.log('mongodb connected!')
+ })
 >```
 
->to import Mongoose in node.js
->```js script
->const mongoose = require('mongoose') 
->
->// Connect with mongoDB
->mongoose.connect('mongodb://localhost/A6-restaurantsList', { useNewUrlParser: true, useUnifiedTopology: true })
->
->// Check mongoDB connection status
->const db = mongoose.connection
->db.on('error', () => {
->  console.log('mongodb error!')
->})
->
->db.once('open', () => {
->  console.log('mongodb connected!')
->})
->```
+6. **handlebars-helpers**
+  ```js
+  $ npm install --save handlebars-helpers
+  ```
 
-6. **Bootstrap (v4.3.1) with CDN**
+
+  ```js
+  const hbshelpers = require('handlebars-helpers')
+  const helpers = hbshelpers()
+  ```
+
+7. **Bootstrap (v4.3.1) with CDN**
    
-7. **FontAwesomewith CDN**
+8. **FontAwesomewith CDN**
