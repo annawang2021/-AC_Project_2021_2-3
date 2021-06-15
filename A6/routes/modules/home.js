@@ -4,10 +4,11 @@ const RestaurantSchema = require('../../models/restaurantSchema.js')
 
 // Index page
 router.get('/', (req, res) => {
+  const sortBy = req.query.sortBy || '-_id'
   RestaurantSchema.find()
     .lean()
-    .sort({ _id: 'asc' })
-    .then(restaurants => res.render('index', { restaurants }))
+    .sort(sortBy)
+    .then(restaurants => res.render('index', { restaurants, sortBy }))
     .catch(error => console.error(error))
 })
 
